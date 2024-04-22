@@ -1,7 +1,12 @@
-from pydantic import BaseModel
+from sqlalchemy import Column, Integer, String
+from database import Base
 
 
-class Todo(BaseModel):
-    number: int
-    description: str
+
+class Todo(Base):
+    __tablename__ = "todos"
+
+    id = Column(Integer, primary_key=True)
+    number = Column(Integer)
+    description = Column(String)
 
